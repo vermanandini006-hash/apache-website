@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CampusFind - Lost & Found</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CampusFind</h1>
+    <h3>Lost & Found Portal</h3>
+
+    <p>Find your lost items on campus!</p>
+
+    <h2>Report Lost Item</h2>
+
+    <input type="text" id="item" placeholder="Enter item name">
+    <br><br>
+
+    <input type="text" id="location" placeholder="Enter location">
+    <br><br>
+
+    <button onclick="reportItem()">Submit</button>
+
+    <h2>Reported Items</h2>
+
+    <ul id="list"></ul>
+
+    <script>
+        function reportItem() {
+            let item = document.getElementById("item").value;
+            let location = document.getElementById("location").value;
+
+            if (item == "" || location == "") {
+                alert("Please fill all details");
+            } else {
+                let li = document.createElement("li");
+
+                li.innerHTML = item + " - " + location;
+
+                document.getElementById("list").appendChild(li);
+
+                alert("Item reported successfully!");
+
+                document.getElementById("item").value = "";
+                document.getElementById("location").value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
